@@ -1,6 +1,8 @@
 #ifndef _STUDENTS_H
 #define _STUDENTS_H
 
+#include <string>
+
 class Students{
 
 private:
@@ -32,7 +34,7 @@ public:
     void birthDate(std::string bd){_birthDate=bd;}
     void email(std::string e){_email=e;}
     void gender(char g){_gender=g;}
-    void jmbg{int j}{_jmbg=j;}
+    void jmbg(int j){_jmbg=j;}
     void depId(int id){_departmentId=id;}
 
 };

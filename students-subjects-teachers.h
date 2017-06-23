@@ -1,7 +1,7 @@
 #ifndef _STUDENTS_SUBJECTS_TEACHERS_H
 #define _STUDENTS_SUBJECT_TEACHERS_H
 
-
+#include <string>
 
 class studSubTeach{
 

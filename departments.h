@@ -1,7 +1,9 @@
 #ifndef _DEPARTMENTS_H
 #define _DEPARTMENTS_H
 
-clas Departments {
+#include <string>
+
+class Departments {
 private:
     int _id;
     std::string _name;

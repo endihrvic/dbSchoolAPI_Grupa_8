@@ -1,6 +1,8 @@
 #ifndef _TEACHERS_H
 #define _TEACHERS_H
 
+#include <string>
+
 class Teachers {
 
 private:
@@ -21,7 +23,7 @@ public:
     int id()const {return _id;}
     std::string firstName()const {return _firstName;}
     std::string lastName()const {return _lastName;}
-    std:.string birthDate()const {return _birthDate;}
+	std::string birthDate()const {return _birthDate;}
     std::string email()const {return _email;}
     char gender()const {return _gender;}
     int jmbg()const {return _jmbg;}

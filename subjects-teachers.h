@@ -10,11 +10,11 @@ private:
 public:
     //geteri
     int subId()const {return _subjectId;}
-    int teachId()const {reaturn _teacherId;}
+    int teachId()const {return _teacherId;}
 
 
     //seteri
-    void subId(int s){_subjectId=s:}
+    void subId(int s){_subjectId=s;}
     void teachId(int ti){_teacherId=ti;}
 
 };

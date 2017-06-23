@@ -1,6 +1,8 @@
 #ifndef _SUBJECTS_H
 #define _SUBJECT_H
 
+#include <string>
+
 class Subjects{
 
 private:
@@ -8,7 +10,7 @@ private:
     int _id;
     std::string _name;
     int _ects;
-    std::string _abbreviation:
+    std::string _abbreviation;
 
 public:
 
@@ -23,7 +25,7 @@ public:
     void id(int i){_id=i;}
     void name(std::string n){_name=n;}
     void ects(int e){_ects=e;}
-    void abber(std:.string a){_abbreviation=a;}
+    void abber(std::string a){_abbreviation=a;}
 
 };
 

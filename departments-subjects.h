@@ -1,6 +1,8 @@
 #ifndef _DEPARTMENTS-SUBJECTS_H
 #define _DEPARTMENTS-SUBJECTS_H
 
+#include <string>
+
 class DepartmentsSubjects{
 
 private:
