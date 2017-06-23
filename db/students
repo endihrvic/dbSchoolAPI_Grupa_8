@@ -1,0 +1,3 @@
+id | firstName | lastName | birthdate | email | gender| jmbg | departmentId
+1, Student, Studentic, 1996-05-05, student.studentic@fet.ba, M, 05051996051247,1
+2, Mujo, Mujic, 1996-12-10, mujo.mujic@fet.ba, M, 10121996051247, 1

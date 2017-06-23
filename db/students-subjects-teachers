@@ -1,0 +1,5 @@
+studentId | subjectId | teacherId | evaluation | date
+1, 1, 1, 10, 2017-06-04
+1, 2, 1, 8, 2017-06-04
+2, 1, 1, 6, 2017-06-04
+2, 2, 2, 7, 2017-06-04
