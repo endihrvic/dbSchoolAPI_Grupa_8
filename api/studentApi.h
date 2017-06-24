@@ -9,7 +9,9 @@
 class StudentApi
 {
 private:
-	Student S;	
+	Student S;
+	StudentApi s;
+	StudentDto s;	
 
 public:
 	void save(int id, std::string, std::string, std::string, std::string, std::string, std::string, int departmentId);
@@ -51,6 +53,62 @@ public:
 	 *Ukoliko ID departmenta postoji, a ostali podaci objekata nisu identicni, javiti gresku.
 	 */
 };
+void StudentApi::save(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, std::string jmbg, int departmentId){
+	S.setId(id);
+	S.setFristName(fristName);
+	S.setLastName(lastName);
+	S.setBrithDate(brithdate);
+	S.setEmail(email);
+	S.setGender(gender);
+	S.setJmbg(jmbg);
+	S.setDepId(departmentId);
+	s.save(S);
+}
+
+void StudentApi::save(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, std::string jmbg, Department depObject){
+S.setFristName(fristName);
+	S.setLastName(lastName);
+	S.setBrithDate(brithdate);
+	S.setEmail(email);
+	S.setGender(gender);
+	S.setJmbg(jmbg);
+	S.setDepId(depObject.getId());
+	s.save(S);
+
+}
+
+void StudentApi::read(int id){
+	s.read(id);
+}
+
+void StudentApi::del(int id){
+	s.del(id);
+}
+void StudentApi::update(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, std::string jmbg, int departmentId){
+	S.setId(id);
+	S.setFristName(fristName);
+	S.setLastName(lastName);
+	S.setBrithDate(brithdate);
+	S.setEmail(email);
+	S.setGender(gender);
+	S.setJmbg(jmbg);
+	S.setDepId(departmentId);
+	s.update(S);
+}
+
+void StudentApi::save(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, std::string jmbg, Department depObject){
+S.setId(id);
+	S.setFristName(fristName);
+	S.setLastName(lastName);
+	S.setBrithDate(brithdate);
+	S.setEmail(email);
+	S.setGender(gender);
+	S.setJmbg(jmbg);
+	S.setDepId(depObject.getId());
+	s.update(S);
+
+}
+
 
 #endif /* STUDENTAPI_H */
 
