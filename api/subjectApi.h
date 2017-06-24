@@ -61,7 +61,7 @@ void SubjectApi::update(int id, std::string name, int ects, std::string abbrevia
 	/*
 	 *Spajanje atributa u jedan objekat koji ce se proslijediti dalje
 	 */
-	a.update(a);
+	a.update(S);
 }
 
 #endif /* SUBJECTAPI_H */
