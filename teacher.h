@@ -7,7 +7,7 @@
 
 #include <string>
 
-class Teachers {
+class Teacher {
 
 private:
 
