@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #include "api/api.h"
+=======
+#include "dbSchoolAPI_Grupa_8/api/api.h"
+>>>>>>> c92fd50d73986effe93c6006f6bc41dbf16f648c
 #include <string>
 #include <iostream>
 
@@ -55,9 +59,15 @@ int main()
     b.setId(100);
     b.setName("Department 100");
     B.save(4, "B", "Ba", "2452", "mail", "M", "1234234", "dr. sc.", b);
+<<<<<<< HEAD
     B.update(3, "Bb", "Bba", "2452", "mail", "M", "1234234", "dr. sc.", b);
     B.read(3);
     B.read(4)
+=======
+    B.set(3, "Bb", "Bba", "2452", "mail", "M", "1234234", "dr. sc.", b);
+    B.get(3);
+    B.get(4);
+>>>>>>> c92fd50d73986effe93c6006f6bc41dbf16f648c
     B.del(3);
     B.del(4);
     /*
