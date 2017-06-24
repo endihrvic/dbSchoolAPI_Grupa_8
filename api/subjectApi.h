@@ -6,13 +6,11 @@
 #include <string>
 #include <stdexcept>
 
-
 class SubjectApi
 {
 private:
 	Subject S;
 	SubjectApi a;
-
 public:
 	void save(int id, std::string , int, std::string);
 	/*
@@ -33,8 +31,7 @@ public:
 	/*
 	 *Metod treba da u fileu "db/subjects.txt" updateuje predmet sa vec postojecim ID brojem.
 	 *Ukoliko student sa datim IDom ne postoji, javiti gresku.
-	 */
-	
+	 */	
 };
 
 void SubjectApi::save(int id, std::string name, int ects, std::string abbreviation){
