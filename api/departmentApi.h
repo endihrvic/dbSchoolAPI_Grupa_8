@@ -1,10 +1,8 @@
 #ifndef DEPARTMENTAPI_H
 #define DEPARTMENTAPI_H
 
-#include "./student.h"
 #include "./department.h"
 #include <string>
-
 
 class DepartmentApi
 {
@@ -58,7 +56,7 @@ void DepartmentApi::update(int id, std::string name){
 	/*
 	 *Spajanje atributa u jedan objekat koji ce se proslijediti dalje
 	 */
-	d.update(d);
+	d.update(D);
 }
 
 #endif /* DEPARTMENTAPI_H */
