@@ -57,7 +57,7 @@ int main()
     B.save(4, "B", "Ba", "2452", "mail", "M", "1234234", "dr. sc.", b);
     B.set(3, "Bb", "Bba", "2452", "mail", "M", "1234234", "dr. sc.", b);
     B.get(3);
-    B.get(4)
+    B.get(4);
     B.del(3);
     B.del(4);
     /*
