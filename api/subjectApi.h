@@ -10,7 +10,7 @@ class SubjectApi
 {
 private:
 	Subject S;
-	SubjectApi a;
+	SubjectDTO a;
 public:
 	void save(int id, std::string , int, std::string);
 	/*
