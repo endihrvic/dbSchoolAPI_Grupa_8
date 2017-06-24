@@ -45,7 +45,6 @@ void SubjectApi::save(int id, std::string name, int ects, std::string abbreviati
 	/*
 	 *Spajanje atributa u jedan objekat koji ce se proslijediti dalje
 	 */
-
 	a.save(S);
 }
 
@@ -62,7 +61,9 @@ void SubjectApi::update(int id, std::string name, int ects, std::string abbrevia
 	S.setName(name);
 	S.setEcts(ects);
 	S.setAbbr(abbreviation);
-
+	/*
+	 *Spajanje atributa u jedan objekat koji ce se proslijediti dalje
+	 */
 	a.update(a);
 }
 
