@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 #include "api/api.h"
-=======
 #include "dbSchoolAPI_Grupa_8/api/api.h"
->>>>>>> c92fd50d73986effe93c6006f6bc41dbf16f648c
 #include <string>
 #include <iostream>
 
@@ -59,15 +56,12 @@ int main()
     b.setId(100);
     b.setName("Department 100");
     B.save(4, "B", "Ba", "2452", "mail", "M", "1234234", "dr. sc.", b);
-<<<<<<< HEAD
     B.update(3, "Bb", "Bba", "2452", "mail", "M", "1234234", "dr. sc.", b);
     B.read(3);
     B.read(4)
-=======
-    B.set(3, "Bb", "Bba", "2452", "mail", "M", "1234234", "dr. sc.", b);
-    B.get(3);
-    B.get(4);
->>>>>>> c92fd50d73986effe93c6006f6bc41dbf16f648c
+    B.update(3, "Bb", "Bba", "2452", "mail", "M", "1234234", "dr. sc.", b);
+    B.read(3);
+    B.read(4);
     B.del(3);
     B.del(4);
     /*
@@ -78,6 +72,8 @@ int main()
     C.read(2); 
     C.save(3, "Ime predmeta", 6, "IP");
     C.read(3);
+    C.update(3, "Drugo ime", 5, "DI");
+    C.read(3);
     C.del(3);
     /*
      *u ovom slucaju nije potrebno raditi kaskadno snimanje jer
@@ -87,6 +83,8 @@ int main()
     departmentApi D;
     D.read(2);
     D.save(3, "Novi department");
+    D.read(3);
+    D.update(3, "Drugi demartment");
     D.read(3);
     D.del(3);
     /*
