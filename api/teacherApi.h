@@ -1,7 +1,8 @@
 #ifndef TEACHERAPI_H
 #define TEACHERAPI_H
 
-#include "./teachers.h"
+#include "./teacher.h"
+#include "./dto/teacherDTO.h"
 #include "./department.h"
 #include <string>
 
@@ -10,6 +11,7 @@ class TeacherApi
 {
 private:
 	Teacher T;	
+	TeacherDTO a;
 
 public:
 	void save(int id, std::string, std::string, std::string, std::string, std::string, std::string, std::string, int departmentId);
@@ -52,5 +54,64 @@ public:
 	 */
 };
 
+void TeacherApi::save(int id, std::string firstName, std::string lastName, std::string birthdate, std::string email, std::string gender, std::string jmbg, std::string title, int departmentId){
+	T.setId(id);
+	T.setFirstName(firstName);
+	T.setLastName(lastName);
+	T.setBirthDate(birthdate);
+	T.setGender(gender);
+	T.setJmbg(jmbg);
+	T.setTitle(title);
+	T.setDepId(departmentId);
+
+	a.save(T);
+}
+
+void TeacherApi::save(int id, std::string firstName, std::string lastName, std::string birthdate, std::string email, std::string gender, std::string jmbg, std::string title, Department depObject){
+	T.setId(id);
+	T.setFirstName(firstName);
+	T.setLastName(lastName);
+	T.setBirthDate(birthdate);
+	T.setGender(gender);
+	T.setJmbg(jmbg);
+	T.setTitle(title);
+	T.setDepId(depObject.getId());
+	
+	a.save(T, depObject);
+}
+
+void TeacherApi::read(unt id){
+	a.read(id);
+}
+
+void TeacherApi::del(int id){
+	a.del(id);
+}
+
+void TeacherApi::update(int id, std::string firstName, std::string lastName, std::string birthdate, std::string email, std::string gender, std::string jmbg, std::string title, int departmentId){
+	T.setId(id);
+	T.setFirstName(firstName);
+	T.setLastName(lastName);
+	T.setBirthDate(birthdate);
+	T.setGender(gender);
+	T.setJmbg(jmbg);
+	T.setTitle(title);
+	T.setDepId(departmentId);
+
+	a.update(T);
+}
+
+void TeacherApi::update(int id, std::string firstName, std::string lastName, std::string birthdate, std::string email, std::string gender, std::string jmbg, std::string title, Department depObject){
+	T.setId(id);
+	T.setFirstName(firstName);
+	T.setLastName(lastName);
+	T.setBirthDate(birthdate);
+	T.setGender(gender);
+	T.setJmbg(jmbg);
+	T.setTitle(title);
+	T.setDepId(depObject.getId());
+	
+	a.update(T, depObject);
+}
 #endif /* TEACHERAPI_H */
 
