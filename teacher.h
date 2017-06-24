@@ -7,7 +7,7 @@
 
 #include <string>
 
-class Teachers {
+class Teacher {
 
 private:
 
@@ -16,8 +16,8 @@ private:
     std::string _lastName;
     std::string _birthDate;
     std::string _email;
-    char _gender;
-    int _jmbg;
+	std::string _gender;
+	std::string _jmbg;
     std::string _title;
     int _departmentId;
 
@@ -29,8 +29,8 @@ public:
     std::string getLastName()const {return _lastName;}
 	std::string getBirthDate()const {return _birthDate;}
     std::string getEmail()const {return _email;}
-    char getGender()const {return _gender;}
-    int getJmbg()const {return _jmbg;}
+	std::string getGender()const {return _gender;}
+	std::string getJmbg()const {return _jmbg;}
     std::string getTitle()const {return _title;}
     int getDepId()const {return _departmentId;}
 
@@ -40,8 +40,8 @@ public:
     void setFirstName(std::string fn){_firstName=fn;}
     void setLastName(std::string ln){_lastName=ln;}
     void setBirthDate(std::string bd){_birthDate=bd;}
-    void setGender(char g){_gender=g;}
-    void setJmbg(int j){_jmbg=j;}
+    void setGender(std::string g){_gender=g;}
+    void setJmbg(std::string j){_jmbg=j;}
     void setTitle(std::string t){_title=t;}
     void setDepId(int di){_departmentId=di;}
 
