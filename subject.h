@@ -25,10 +25,10 @@ public:
     std::string getAbbr()const {return _abbreviation;}
 
 	//seteri
-    void getId(int i){_id=i;}
-    void getName(std::string n){_name=n;}
-    void getEcts(int e){_ects=e;}
-    void getAbbr(std::string a){_abbreviation=a;}
+    void setId(int i){_id=i;}
+    void setName(std::string n){_name=n;}
+    void setEcts(int e){_ects=e;}
+    void setAbbr(std::string a){_abbreviation=a;}
 
 };
 
