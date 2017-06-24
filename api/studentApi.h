@@ -11,7 +11,6 @@ class StudentApi
 {
 private:
 	Student S;
-	StudentApi s;
 	StudentDto s;	
 
 public:
