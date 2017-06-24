@@ -9,7 +9,8 @@
 class DepartmentApi
 {
 private:
-	Department D;	
+	Department D;
+	DepartmentApi d;	
 
 public:
 	void save(int id, std::string);
@@ -34,6 +35,31 @@ public:
 	 */
 	
 };
+void DepartmentApi::save(int id, std::string name){
+	D.setId(id);
+	D.setName(name);
+	/*
+	 *Spajanje atributa u jedan objekat koji ce se proslijediti dalje
+	 */
+	d.save(D);
+}
+
+void SubjectApi::read(int id) const{
+	d.read(id);
+}
+
+void SubjectApi::del(int id){
+	d.del(id);
+}
+
+void SubjectApi::update(int id, std::string name){
+	D.setId(id);
+	D.setName(name);
+	/*
+	 *Spajanje atributa u jedan objekat koji ce se proslijediti dalje
+	 */
+	d.update(d);
+}
 
 #endif /* DEPARTMENTAPI_H */
 
