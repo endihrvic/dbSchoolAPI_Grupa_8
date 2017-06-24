@@ -44,15 +44,15 @@ void DepartmentApi::save(int id, std::string name){
 	d.save(D);
 }
 
-void SubjectApi::read(int id) const{
+void DepartmentApi::read(int id) const{
 	d.read(id);
 }
 
-void SubjectApi::del(int id){
+void DepartmentApi::del(int id){
 	d.del(id);
 }
 
-void SubjectApi::update(int id, std::string name){
+void DepartmentApi::update(int id, std::string name){
 	D.setId(id);
 	D.setName(name);
 	/*
