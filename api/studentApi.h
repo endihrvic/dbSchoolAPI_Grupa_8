@@ -73,7 +73,7 @@ S.setFristName(fristName);
 	S.setGender(gender);
 	S.setJmbg(jmbg);
 	S.setDepId(depObject.getId());
-	s.save(S);
+	s.save(S,depObject);
 
 }
 
@@ -105,7 +105,7 @@ S.setId(id);
 	S.setGender(gender);
 	S.setJmbg(jmbg);
 	S.setDepId(depObject.getId());
-	s.update(S);
+	s.update(S,depObject);
 
 }
 
