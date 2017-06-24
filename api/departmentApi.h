@@ -1,15 +1,14 @@
 #ifndef DEPARTMENTAPI_H
 #define DEPARTMENTAPI_H
 
-#include "./student.h"
 #include "./department.h"
 #include <string>
-
 
 class DepartmentApi
 {
 private:
-	Department D;	
+	Department D;
+	DepartmentDTO d;	
 
 public:
 	void save(int id, std::string);
@@ -34,6 +33,31 @@ public:
 	 */
 	
 };
+void DepartmentApi::save(int id, std::string name){
+	D.setId(id);
+	D.setName(name);
+	/*
+	 *Spajanje atributa u jedan objekat koji ce se proslijediti dalje
+	 */
+	d.save(D);
+}
+
+void DepartmentApi::read(int id) const{
+	d.read(id);
+}
+
+void DepartmentApi::del(int id){
+	d.del(id);
+}
+
+void DepartmentApi::update(int id, std::string name){
+	D.setId(id);
+	D.setName(name);
+	/*
+	 *Spajanje atributa u jedan objekat koji ce se proslijediti dalje
+	 */
+	d.update(D);
+}
 
 #endif /* DEPARTMENTAPI_H */
 

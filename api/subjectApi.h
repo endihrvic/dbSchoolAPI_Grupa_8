@@ -6,13 +6,11 @@
 #include <string>
 #include <stdexcept>
 
-
 class SubjectApi
 {
 private:
 	Subject S;
-	SubjectApi a;
-
+	SubjectDTO a;
 public:
 	void save(int id, std::string , int, std::string);
 	/*
@@ -33,8 +31,7 @@ public:
 	/*
 	 *Metod treba da u fileu "db/subjects.txt" updateuje predmet sa vec postojecim ID brojem.
 	 *Ukoliko student sa datim IDom ne postoji, javiti gresku.
-	 */
-	
+	 */	
 };
 
 void SubjectApi::save(int id, std::string name, int ects, std::string abbreviation){
@@ -45,7 +42,6 @@ void SubjectApi::save(int id, std::string name, int ects, std::string abbreviati
 	/*
 	 *Spajanje atributa u jedan objekat koji ce se proslijediti dalje
 	 */
-
 	a.save(S);
 }
 
@@ -62,8 +58,10 @@ void SubjectApi::update(int id, std::string name, int ects, std::string abbrevia
 	S.setName(name);
 	S.setEcts(ects);
 	S.setAbbr(abbreviation);
-
-	a.update(a);
+	/*
+	 *Spajanje atributa u jedan objekat koji ce se proslijediti dalje
+	 */
+	a.update(S);
 }
 
 #endif /* SUBJECTAPI_H */
