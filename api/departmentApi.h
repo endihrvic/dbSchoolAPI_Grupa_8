@@ -8,7 +8,7 @@ class DepartmentApi
 {
 private:
 	Department D;
-	DepartmentApi d;	
+	DepartmentDTO d;	
 
 public:
 	void save(int id, std::string);
