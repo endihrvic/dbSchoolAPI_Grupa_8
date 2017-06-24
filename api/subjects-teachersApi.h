@@ -10,7 +10,7 @@ class SubjectsTeachersApi
 {
 private:
 	SubjectsTeachersApi S;
-	SubjectsTeachersApiDTO d;	
+	SubjectsTeachersApiDTO s;	
 
 public:
 	void save(int subjectId, int teacherId);
@@ -18,12 +18,12 @@ public:
 	 *Metod treba da u file "db/subjects-teachers.txt" 
 	 *
 	 */
-	void read(int subjectId, int teacherId) const;
+	void read() const;
 	/*
 	 *Metod treba da procita 
 	 *Ukoliko ID ne postoji u listi, generirati gresku.
 	 */
-	void del(int subjectId, int teacherId);
+	void del();
 	/*
 	 *Metod treba da obrise 
 	 *Ukoliko ID ne postoji u listi, generirati gresku.
@@ -35,4 +35,25 @@ public:
 	 */
 	
 };
+void SubjectsTeachersApi::save(int subjectId, int teacherId){
+	S.setSubId(subjectId);
+	S.setTeacdId(teacherId);
+	s.save(s)
+}
+
+void SubjectsTeachersApi::read() const{
+	
+
+}
+
+void SubjectsTeachersApi::del(){
+	
+}
+
+void SubjectsTeachersApi::update(int subjectId, int teacherId){
+	S.setSubId(subjectId);
+	S.setTeacdId(teacherId);
+	s.update(s)
+
+}
 #endif /* SUBJECTS-TEACHERSAPI_H */

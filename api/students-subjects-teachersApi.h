@@ -11,7 +11,7 @@ class StudentsSubjectsTeachersApi
 {
 private:
 	StudentsSubjectsTeachersApi S;
-	StudentsSubjectsTeachersApiDTO d;	
+	StudentsSubjectsTeachersApiDTO s;	
 
 public:
 	void save(int studentId, int subjectId, int teacherId, int evaluation, std::string date);
@@ -19,12 +19,12 @@ public:
 	 *Metod treba da u file "db/students-subjects-teachers.txt" 
 	 *
 	 */
-	void read(int studentId, int subjectId, int teacherId, int evaluation, std::string date) const;
+	void read(int studentId, int subjectId, int teacherId) const;
 	/*
 	 *Metod treba da procita 
 	 *Ukoliko ID ne postoji u listi, generirati gresku.
 	 */
-	void del(int studentId, int subjectId, int teacherId, int evaluation, std::string date);
+	void del(int studentId, int subjectId, int teacherId);
 	/*
 	 *Metod treba da obrise 
 	 *Ukoliko ID ne postoji u listi, generirati gresku.
@@ -36,4 +36,32 @@ public:
 	 */
 	
 };
+void StudentsSubjectsTeachersApi::save(int studentId, int subjectId, int teacherId, int evaluation, std::string date){
+	
+	S.setStudId(studentId);
+	S.setSubId(subjectId);
+	S.setTeachId(teacherId);
+	S.setEval(evaluation);
+	S.setDate(date);
+	s.save(S)
+}
+
+void StudentsSubjectsTeachersApi::read(int studentId, int subjectId, int teacherId) const{
+	d.read(studentId,subjectId,teacherId);
+
+}
+
+void StudentsSubjectsTeachersApi::del(int studentId, int subjectId, int teacherId){
+	s.del(studentId,subjectId,teacherId);
+}
+
+void StudentsSubjectsTeachersApi::update(int studentId, int subjectId, int teacherId, int evaluation, std::string date){
+	S.setStudId(studentId);
+	S.setSubId(subjectId);
+	S.setTeachId(teacherId);
+	S.setEval(evaluation);
+	S.setDate(date);
+	s.update(S)
+
+}
 #endif /* STUDENTS-SUBJECTS-TEACHERSAPI_H */

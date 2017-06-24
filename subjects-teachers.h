@@ -9,13 +9,13 @@ private:
 
 public:
     //geteri
-    int subId()const {return _subjectId;}
-    int teachId()const {return _teacherId;}
+    int getSubId()const {return _subjectId;}
+    int getTeachId()const {return _teacherId;}
 
 
     //seteri
-    void subId(int s){_subjectId=s;}
-    void teachId(int ti){_teacherId=ti;}
+    void setSubId(int s){_subjectId=s;}
+    void setTeachId(int ti){_teacherId=ti;}
 
 };
 

@@ -14,16 +14,16 @@ private:
 public:
 
     //geteri
-    int depId()const {return _departmentId;}
-    int subId()const {return _subjectId;}
-    std::string studYear()const {return _studyYear;}
-    std::string studySem()const {return _studySemester;}
+    int getDepId()const {return _departmentId;}
+    int getSubId()const {return _subjectId;}
+    std::string getStudYear()const {return _studyYear;}
+    std::string getStudySem()const {return _studySemester;}
 
     //seteri
-    void depId(int i){_departmentId=i;}
-    void subId(int j){_subjectId=j;}
-    void studYear(std::string sy){_studyYear=sy;}
-    void studySem(std::string sm){_studySemester=sm;}
+    void setDepId(int i){_departmentId=i;}
+    void setSubId(int j){_subjectId=j;}
+    void setStudYear(std::string sy){_studyYear=sy;}
+    void setStudySem(std::string sm){_studySemester=sm;}
 
 
 };

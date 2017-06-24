@@ -16,18 +16,18 @@ private:
 public:
 
 //geteri
-int studId()const {return _studentId;}
-int subId()const {return _subjectId;}
-int teachId()const {return _teacherId;}
-int eval()const {return _evaluation;}
-std::string date()const {return _date;}
+int getStudId()const {return _studentId;}
+int getSubId()const {return _subjectId;}
+int getTeachId()const {return _teacherId;}
+int getEval()const {return _evaluation;}
+std::string getDate()const {return _date;}
 
 //seteri
-void studId(int i){_studentId=i;}
-void subId(int si){_subjectId=si;}
-void teachId(int ti){_teacherId=ti;}
-void eval(int e){_evaluation=e;}
-void date(std::string d){_date=d;}
+void setStudId(int i){_studentId=i;}
+void setSubId(int si){_subjectId=si;}
+void setTeachId(int ti){_teacherId=ti;}
+void setEval(int e){_evaluation=e;}
+void setDate(std::string d){_date=d;}
 
 };
 
