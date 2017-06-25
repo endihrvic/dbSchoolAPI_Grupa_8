@@ -45,10 +45,8 @@ Subject strToSubject(std::string s){
 
 std::string subjectToStr(Subject a){
 	std::string s;
-	std::stringstream ss;
-	ss << a.getId() << ", " << a.getName() << ", " << a.getEtcs() << ", " << a.getAbbr();
-	ss >> s;
-	return s;
+		return std::to_string(a.getId()) + ", " + a.getName() + ", " + std::to_string(a.getEtcs()) + ", " + a.getAbbr();
+	s;
 }
 
 void SubjectDTO::save(Subject a){
@@ -56,7 +54,6 @@ void SubjectDTO::save(Subject a){
 	std::ifstream is;
 	is.open("./db/subjects.txt");
 	std::string s;
-  getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToSubject(s)).getId())
 			throw std::runtime_error("ID se vec koristi\n");
@@ -64,8 +61,8 @@ void SubjectDTO::save(Subject a){
 	is.close();
 	//ukoliko nije doslo do greske, upisi objekat u file
 	std::ofstream os;
-	os.open("./db/subjects.txt");
-	os << subjectToStr(a);
+	os.open("./db/subjects.txt", std::ios::app);
+	os << subjectToStr(a) << "\n";
 	os.close();
 }
 
@@ -75,7 +72,6 @@ void SubjectDTO::read(int id){
 	std::ifstream is;
 	is.open("./db/subjects.txt");
 	std::string s;
-getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToSubject(s)).getId()){
 			found = true;
@@ -83,7 +79,7 @@ getline(is,s);
 		}
 	}	
 	if(found)
-		std::cout << s;
+		std::cout << s << "\n";
 	else
 		std::cout << "Error: trazeni unos ne postoji\n";
 }
@@ -93,7 +89,6 @@ void SubjectDTO::del(int id){
 	std::ifstream is;
 	is.open("./db/subjects.txt");
 	std::string s;
-getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToSubject(s)).getId()){
 			deleteLine(s, "./db/subjects.txt");
@@ -107,7 +102,6 @@ void SubjectDTO::update(Subject a){
 	std::ifstream is;
 	is.open("./db/subjects.txt");
 	std::string s;
-getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToSubject(s)).getId()){
 			changeLine(s, subjectToStr(a), "./db/subjects.txt");

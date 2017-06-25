@@ -36,10 +36,7 @@ Department strToDepartment(std::string d){
 
 std::string departmentToStr(Department a){
 	std::string s;
-	std::stringstream ss;
-	ss << a.getId() << ", " << a.getName();
-	ss >> s;
-	return s;
+	return std::to_string(a.getId()) + ", " + a.getName();
 }
 
 void DepartmentDTO::save(Department a){
@@ -47,7 +44,6 @@ void DepartmentDTO::save(Department a){
 	std::ifstream is;
 	is.open("./db/departments.txt");
 	std::string s;
-  getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToDepartment(s)).getId())
 			throw std::runtime_error("ID se vec koristi\n");
@@ -55,8 +51,8 @@ void DepartmentDTO::save(Department a){
 	is.close();
 	//ukoliko nije doslo do greske, upisi objekat u file
 	std::ofstream os;
-	os.open("./db/departments.txt");
-	os << departmentToStr(a);
+	os.open("./db/departments.txt", std::ios::app);
+	os << departmentToStr(a) << "\n";
 	os.close();
 }
 
@@ -66,7 +62,6 @@ void DepartmentDTO::read(int id){
 	std::ifstream is;
 	is.open("./db/departments.txt");
 	std::string s;
-	getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToDepartment(s)).getId()){
 			found = true;
@@ -74,7 +69,7 @@ void DepartmentDTO::read(int id){
 		}
 	}	
 	if(found)
-		std::cout << s;
+		std::cout << s << "\n";
 	else
 		std::cout << "Error: trazeni unos ne postoji\n";
 }
@@ -84,7 +79,6 @@ void DepartmentDTO::del(int id){
 	std::ifstream is;
 	is.open("./db/departments.txt");
 	std::string s;
-	getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToDepartment(s)).getId()){
 			deleteLine(s, "./db/departments.txt");
@@ -98,7 +92,6 @@ void DepartmentDTO::update(Department a){
 	std::ifstream is;
 	is.open("./db/departments.txt");
 	std::string s;
-getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToDepartment(s)).getId()){
 			changeLine(s, departmentToStr(a), "./db/departments.txt");

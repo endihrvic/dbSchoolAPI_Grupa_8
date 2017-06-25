@@ -65,11 +65,7 @@ Student strToStudents(std::string s){
 
 std::string StudentsToStr(Student a){
 	std::string s;
-	std::stringstream ss;
-	ss << a.getId() << ", " << a.getFirstName() << ", " << a.getLastName() << ", " << a.getBirthDate() << ", " <<a.getEmail();
-  ss<<", "<< a.getGender() <<", " << a.getJmbg() << ", " << a.getDepId() <<"\n";
-	ss >> s;
-	return s;
+	return std::to_string(a.getId()) + ", " + a.getFirstName() + ", " + a.getLastName() + ", " + a.getBirthDate() + ", " +a.getEmail() + ", "+ a.getGender() +", " + a.getJmbg() + ", " + std::to_string(a.getDepId());
 }
 
 void StudentDTO::save(Student a){
@@ -77,7 +73,6 @@ void StudentDTO::save(Student a){
 	std::ifstream is;
 	is.open("./db/students.txt");
 	std::string s;
-getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToStudents(s)).getId())
 			throw std::runtime_error("ID se vec koristi\n");
@@ -85,8 +80,8 @@ getline(is,s);
 	is.close();
 	//ukoliko nije doslo do greske, upisi objekat u file
 	std::ofstream os;
-	os.open("./db/students.txt");
-	os << "\n" << StudentsToStr(a);
+	os.open("./db/students.txt", std::ios::app);
+		os << StudentsToStr(a) << "\n";
 	os.close();
 }
 
@@ -95,7 +90,6 @@ void StudentDTO::save(Student a, Department d){
 	std::ifstream is;
 	is.open("./db/students.txt");
 	std::string s;
-  getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToStudents(s)).getId())
 			throw std::runtime_error("ID se vec koristi\n");
@@ -106,11 +100,11 @@ void StudentDTO::save(Student a, Department d){
 		DepartmentDTO dDto;
 		dDto.save(d);
 	}	
-	catch(std::string cs){}
+	catch(...){}
 	//upisati studenta u file
 	std::ofstream os;
-	os.open("./db/students.txt");
-	os << "\n" << StudentsToStr(a);
+	os.open("./db/students.txt", std::ios::app);
+	os << "\n" << StudentsToStr(a) << "\n";
 	os.close();
 }
 
@@ -120,7 +114,6 @@ void StudentDTO::read(int id){
 	std::ifstream is;
 	is.open("./db/students.txt");
 	std::string s;
-getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToStudents(s)).getId()){
 			found = true;
@@ -128,7 +121,7 @@ getline(is,s);
 		}
 	}	
 	if(found)
-		std::cout << s;
+		std::cout << s << "\n";
 	else
 		std::cout << "Error: trazeni unos ne postoji\n";
 }
@@ -138,7 +131,6 @@ void StudentDTO::del(int id){
 	std::ifstream is;
 	is.open("./db/students.txt");
 	std::string s;
-getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToStudents(s)).getId()){
 			deleteLine(s, "./db/students.txt");
@@ -152,7 +144,6 @@ void StudentDTO::update(Student a){
 	std::ifstream is;
 	is.open("./db/students.txt");
 	std::string s;
-getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToStudents(s)).getId()){
 			changeLine(s, StudentsToStr(a), "./db/students.txt");
@@ -167,7 +158,6 @@ void StudentDTO::update(Student a, Department d){
 	std::ifstream is;
 	is.open("./db/students.txt");
 	std::string s;
-getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToStudents(s)).getId()){
 		//ukoliko student sa datim IDom postoji u fajlu, provjeriti department, pa snimiti studenta
@@ -175,7 +165,7 @@ getline(is,s);
 			DepartmentDTO dDto;
 			dDto.save(d);
 		}	
-		catch(std::string cs){}
+		catch(...){}
 		//upisati studenta u file
 		changeLine(s, StudentsToStr(a), "./db/students.txt");
 		return;
