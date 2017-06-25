@@ -14,7 +14,7 @@ class DepartmentsSubjectsDTO
 {
 public:
 	void save(DepartmentsSubjects);	
-	void read(int,int)const;
+	void read(int,int);
 	void del(int,int);
 	void update(DepartmentsSubjects);
 };
@@ -67,7 +67,7 @@ void DepartmentsSubjectsDTO::save(DepartmentsSubjects a){
 	os.close();
 }
 
-void DepartmentsSubjectsDTO::read(int id, int subid)const{
+void DepartmentsSubjectsDTO::read(int id, int subid){
 	bool found = false;
 	DepartmentsSubjects a;
 	std::ifstream is;

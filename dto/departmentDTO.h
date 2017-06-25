@@ -47,6 +47,7 @@ void DepartmentDTO::save(Department a){
 	std::ifstream is;
 	is.open("./db/departments.txt");
 	std::string s;
+  getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToDepartment(s)).getId())
 			throw std::runtime_error("ID se vec koristi\n");

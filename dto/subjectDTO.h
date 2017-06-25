@@ -56,6 +56,7 @@ void SubjectDTO::save(Subject a){
 	std::ifstream is;
 	is.open("./db/subjects.txt");
 	std::string s;
+  getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToSubject(s)).getId())
 			throw std::runtime_error("ID se vec koristi\n");

@@ -94,6 +94,7 @@ void StudentDTO::save(Student a, Department d){
 	std::ifstream is;
 	is.open("./db/students.txt");
 	std::string s;
+  getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToStudents(s)).getId())
 			throw std::runtime_error("ID se vec koristi\n");
