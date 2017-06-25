@@ -48,14 +48,14 @@ void DepartmentDTO::save(Department a){
 	is.open("./db/departments.txt");
 	std::string s;
 	while(getline(is, s)){
-		if(a.getId() == (strToSubject(s)).getId())
+		if(a.getId() == (strToDepartment(s)).getId())
 			throw std::runtime_error("ID se vec koristi\n");
 	}	
 	is.close();
 	//ukoliko nije doslo do greske, upisi objekat u file
 	std::ofstream os;
 	os.open("./db/departments.txt");
-	os << subjectToStr(a);
+	os << departmentToStr(a);
 	os.close();
 }
 
@@ -66,7 +66,7 @@ void DepartmentDTO::read(int id){
 	is.open("./db/departments.txt");
 	std::string s;
 	while(getline(is, s)){
-		if(id == (strToSubject(s)).getId()){
+		if(id == (strToDepartment(s)).getId()){
 			found = true;
 			break;
 		}
@@ -83,7 +83,7 @@ void DepartmentDTO::del(int id){
 	is.open("./db/departments.txt");
 	std::string s;
 	while(getline(is, s)){
-		if(id == (strToSubject(s)).getId()){
+		if(id == (strToDepartment(s)).getId()){
 			deleteLine(s, "./db/departments.txt");
 			return;
 		}
@@ -96,8 +96,8 @@ void DepartmentDTO::update(Department a){
 	is.open("./db/departments.txt");
 	std::string s;
 	while(getline(is, s)){
-		if(a.getId() == (strToSubject(s)).getId()){
-			changeLine(s, subjectToStr(a), "./db/departments.txt");
+		if(a.getId() == (strToDepartment(s)).getId()){
+			changeLine(s, departmentToStr(a), "./db/departments.txt");
 			return;
 		}
 	}	
