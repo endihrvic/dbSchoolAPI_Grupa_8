@@ -11,7 +11,7 @@ class StudentApi
 {
 private:
 	Student S;
-	StudentDto s;	
+	StudentDTO s;	
 
 public:
 	void save(int id, std::string, std::string, std::string, std::string, std::string, int, int departmentId);
@@ -28,7 +28,7 @@ public:
 	 *kreirati novi Department na osnovu proslijedjenog, a nakon toga kreirati novog studenta.
 	 *Ukoliko ID departmenta postoji, a ostali podaci objekata nisu identicni, javiti gresku.
 	 */
-	void read(int id) const;
+	void read(int id);
 	/*
 	 *Metod treba da procita studenta iz liste "db/students.txt" sa datim ID brojem.
 	 *Ukoliko ID ne postoji u listi, generirati gresku.
@@ -55,9 +55,9 @@ public:
 };
 void StudentApi::save(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, int jmbg, int departmentId){
 	S.setId(id);
-	S.setFristName(fristName);
+	S.setFirstName(fristName);
 	S.setLastName(lastName);
-	S.setBrithDate(brithdate);
+	S.setBirthDate(brithdate);
 	S.setEmail(email);
 	S.setGender(gender);
 	S.setJmbg(jmbg);
@@ -66,9 +66,10 @@ void StudentApi::save(int id, std::string fristName, std::string lastName, std::
 }
 
 void StudentApi::save(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, int jmbg, Department depObject){
-S.setFristName(fristName);
+	S.setId(id);
+	S.setFirstName(fristName);
 	S.setLastName(lastName);
-	S.setBrithDate(brithdate);
+	S.setBirthDate(brithdate);
 	S.setEmail(email);
 	S.setGender(gender);
 	S.setJmbg(jmbg);
@@ -86,9 +87,9 @@ void StudentApi::del(int id){
 }
 void StudentApi::update(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, int jmbg, int departmentId){
 	S.setId(id);
-	S.setFristName(fristName);
+	S.setFirstName(fristName);
 	S.setLastName(lastName);
-	S.setBrithDate(brithdate);
+	S.setBirthDate(brithdate);
 	S.setEmail(email);
 	S.setGender(gender);
 	S.setJmbg(jmbg);
@@ -96,11 +97,10 @@ void StudentApi::update(int id, std::string fristName, std::string lastName, std
 	s.update(S);
 }
 
-void StudentApi::save(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, int jmbg, Department depObject){
-S.setId(id);
-	S.setFristName(fristName);
+void StudentApi::update(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, int jmbg, Department depObject){
+	S.setFirstName(fristName);
 	S.setLastName(lastName);
-	S.setBrithDate(brithdate);
+	S.setBirthDate(brithdate);
 	S.setEmail(email);
 	S.setGender(gender);
 	S.setJmbg(jmbg);
