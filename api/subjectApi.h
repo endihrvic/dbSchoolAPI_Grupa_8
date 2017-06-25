@@ -1,8 +1,8 @@
 #ifndef SUBJECTAPI_H
 #define SUBJECTAPI_H
 
-#include "./subject.h"
-#include "./dto/subjectDTO.h"
+#include "../subject.h"
+#include "../dto/subjectDTO.h"
 #include <string>
 #include <stdexcept>
 

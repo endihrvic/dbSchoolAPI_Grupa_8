@@ -1,9 +1,9 @@
 #ifndef STUDENTAPI_H
 #define STUDENTAPI_H
 
-#include "./student.h"
-#include "./dto/studentDTO.h"
-#include "./department.h"
+#include "../student.h"
+#include "../dto/studentDTO.h"
+#include "../department.h"
 #include <string>
 
 
