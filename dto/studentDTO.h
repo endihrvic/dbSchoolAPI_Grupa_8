@@ -1,7 +1,7 @@
-#ifndef TEACHERDTO_H
-#define TEACHERDTO_H
+#ifndef STUDENTDTO_H
+#define STUDENTDTO_H
 
-#include "../teacher.h"
+#include "../student.h"
 #include "../department.h"
 #include "exchDelLine.h"
 #include <iostream>
@@ -11,19 +11,19 @@
 #include <sstream>
 
 
-class TeacherDTO
+class StudentDTO
 {
 public:
-	void save(Teacher);
+	void save(Student);
 	
 	void read(int);
 	void del(int);
-	void update(Teacher);
+	void update(Student);
 	
 };
 
-Teacher strToTeachers(std::string s){
-	Teacher a;
+Student strToStudents(std::string s){
+	Student a;
 	int b;
 	std::stringstream ss;	
 	ss << s;
@@ -52,13 +52,9 @@ Teacher strToTeachers(std::string s){
 	a.setGender(s);
 	ss.ignore(1);
 	//setuj jmbg
-	getline(ss, s, ',');
-	a.setJmbg(s); 
-	ss.ignore(1);
-	//setuj title
-	getline(ss, s, ',');
-	a.setTitle(s);
-	ss.ignore(1);
+  ss>>b;
+	a.setJmbg(b); 
+	ss.ignore(2);
 	//setuj departmentId
 	ss >> b;
 	a.setDepId(b);
@@ -66,40 +62,40 @@ Teacher strToTeachers(std::string s){
 	return a;
 }
 
-std::string teachersToStr(Teacher a){
+std::string StudentsToStr(Student a){
 	std::string s;
 	std::stringstream ss;
 	ss << a.getId() << ", " << a.getFirstName() << ", " << a.getLastName() << ", " << a.getBirthDate() << ", " <<a.getEmail();
-  ss << ", " << a.getGender() <<", " << a.getJmbg() << ", " << a.getTitle() << ", " << a.getDepId() <<"\n";
+  ss<<", "<< a.getGender() <<", " << a.getJmbg() << ", " << a.getDepId() <<"\n";
 	ss >> s;
 	return s;
 }
 
-void TeacherDTO::save(Teacher a){
+void StudentDTO::save(Student a){
 	//preuzmi string iz filea 
 	std::ifstream is;
-	is.open("./db/teachers.txt");
+	is.open("./db/students.txt");
 	std::string s;
 	while(getline(is, s)){
-		if(a.getId() == (strToTeachers(s)).getId())
+		if(a.getId() == (strToStudents(s)).getId())
 			throw std::runtime_error("ID se vec koristi\n");
 	}	
 	is.close();
 	//ukoliko nije doslo do greske, upisi objekat u file
 	std::ofstream os;
-	os.open("./db/teachers.txt");
-	os << teachersToStr(a);
+	os.open("./db/students.txt");
+	os << StudentsToStr(a);
 	os.close();
 }
 
-void TeacherDTO::read(int id){
+void StudentDTO::read(int id){
 	bool found = false;
-	Teacher a;
+	Student a;
 	std::ifstream is;
-	is.open("./db/teachers.txt");
+	is.open("./db/students.txt");
 	std::string s;
 	while(getline(is, s)){
-		if(id == (strToTeachers(s)).getId()){
+		if(id == (strToStudents(s)).getId()){
 			found = true;
 			break;
 		}
@@ -110,31 +106,31 @@ void TeacherDTO::read(int id){
 		std::cout << "Error: trazeni unos ne postoji\n";
 }
 
-void TeacherDTO::del(int id){
-	Teacher a;
+void StudentDTO::del(int id){
+	Student a;
 	std::ifstream is;
-	is.open("./db/teachers.txt");
+	is.open("./db/students.txt");
 	std::string s;
 	while(getline(is, s)){
-		if(id == (strToTeachers(s)).getId()){
-			deleteLine(s, "./db/teachers.txt");
+		if(id == (strToStudents(s)).getId()){
+			deleteLine(s, "./db/students.txt");
 			return;
 		}
 	}	
 	std::cout << "Error: trazeni unos ne postoji\n";	
 }
 
-void TeacherDTO::update(Teacher a){
+void StudentDTO::update(Student a){
 	std::ifstream is;
-	is.open("./db/teachers.txt");
+	is.open("./db/students.txt");
 	std::string s;
 	while(getline(is, s)){
-		if(a.getId() == (strToTeachers(s)).getId()){
-			changeLine(s, teachersToStr(a), "./db/teachers.txt");
+		if(a.getId() == (strToStudents(s)).getId()){
+			changeLine(s, StudentsToStr(a), "./db/students.txt");
 			return;
 		}
 	}	
 	std::cout << "Error: trazeni unos ne postoji\n";
 }
 
-#endif /* TEACHERDTO_H */
+#endif /* STUDENTDTO_H */

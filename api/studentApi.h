@@ -14,13 +14,13 @@ private:
 	StudentDto s;	
 
 public:
-	void save(int id, std::string, std::string, std::string, std::string, std::string, std::string, int departmentId);
+	void save(int id, std::string, std::string, std::string, std::string, std::string, int, int departmentId);
 	/*
 	 *Metod treba da u file "db/students.txt" snimi studenta sa novim ID brojem.
 	 *Ukoliko student sa datim IDom vec postoji, javiti gresku.
 	 *Ukoliko ne postoji department sa naznacenim IDom, javiti gresku.
 	 */
-	void save(int id, std::string, std::string, std::string, std::string, std::string, std::string, Department depObject);
+	void save(int id, std::string, std::string, std::string, std::string, std::string, int, Department depObject);
 	/*
 	 *Metod treba da u file "db/students.txt" snimi studenta sa novim IDom.
 	 *Ukoliko ID vec postoji u listi, javiti gresku.
@@ -38,13 +38,13 @@ public:
 	 *Metod treba da obrise studenta iz liste "db/students.txt" sa datim ID brojem.
 	 *Ukoliko ID ne postoji u listi, generirati gresku.
 	 */
-	void update(int id, std::string, std::string, std::string, std::string, std::string, std::string, int departmentId);
+	void update(int id, std::string, std::string, std::string, std::string, std::string, int, int departmentId);
 	/*
 	 *Metod treba da u fileu "db/students.txt" updateuje studenta sa vec postojecim ID brojem.
 	 *Ukoliko student sa datim IDom ne postoji, javiti gresku.
 	 *Ukoliko ne postoji department sa naznacenim IDom, javiti gresku.
 	 */
-	void update(int, std::string, std::string, std::string, std::string, std::string, std::string, Department);
+	void update(int, std::string, std::string, std::string, std::string, std::string, int, Department);
 	/*
 	 *Metod treba da u fileu "db/students.txt" updateuje studenta sa novim IDom.
 	 *Ukoliko ID ne postoji u listi, javiti gresku.
@@ -53,7 +53,7 @@ public:
 	 *Ukoliko ID departmenta postoji, a ostali podaci objekata nisu identicni, javiti gresku.
 	 */
 };
-void StudentApi::save(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, std::string jmbg, int departmentId){
+void StudentApi::save(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, int jmbg, int departmentId){
 	S.setId(id);
 	S.setFristName(fristName);
 	S.setLastName(lastName);
@@ -65,7 +65,7 @@ void StudentApi::save(int id, std::string fristName, std::string lastName, std::
 	s.save(S);
 }
 
-void StudentApi::save(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, std::string jmbg, Department depObject){
+void StudentApi::save(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, int jmbg, Department depObject){
 S.setFristName(fristName);
 	S.setLastName(lastName);
 	S.setBrithDate(brithdate);
@@ -84,7 +84,7 @@ void StudentApi::read(int id){
 void StudentApi::del(int id){
 	s.del(id);
 }
-void StudentApi::update(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, std::string jmbg, int departmentId){
+void StudentApi::update(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, int jmbg, int departmentId){
 	S.setId(id);
 	S.setFristName(fristName);
 	S.setLastName(lastName);
@@ -96,7 +96,7 @@ void StudentApi::update(int id, std::string fristName, std::string lastName, std
 	s.update(S);
 }
 
-void StudentApi::save(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, std::string jmbg, Department depObject){
+void StudentApi::save(int id, std::string fristName, std::string lastName, std::string brithdate, std::string email, std::string gender, int jmbg, Department depObject){
 S.setId(id);
 	S.setFristName(fristName);
 	S.setLastName(lastName);
