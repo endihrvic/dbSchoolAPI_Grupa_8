@@ -1,7 +1,8 @@
 #ifndef DEPARTMENTAPI_H
 #define DEPARTMENTAPI_H
 
-#include "./department.h"
+#include "../department.h"
+#include "../dto/departmentDTO.h"
 #include <string>
 
 class DepartmentApi
@@ -16,7 +17,7 @@ public:
 	 *Metod treba da u file "db/departments.txt" snimi department sa novim ID brojem.
 	 *Ukoliko department sa datim IDom vec postoji, javiti gresku.
 	 */
-	void read(int id) const;
+	void read(int id);
 	/*
 	 *Metod treba da procita department iz liste "db/departments.txt" sa datim ID brojem.
 	 *Ukoliko ID ne postoji u listi, generirati gresku.
@@ -42,7 +43,7 @@ void DepartmentApi::save(int id, std::string name){
 	d.save(D);
 }
 
-void DepartmentApi::read(int id) const{
+void DepartmentApi::read(int id){
 	d.read(id);
 }
 

@@ -1,27 +1,28 @@
 #ifndef DEPARTMENTS-SUBJECTSAPI_H
 #define DEPARTMENTS-SUBJECTSAPI_H
 
-#include "./department.h"
-#include "./subject.h"
-#include "./departments-subjects.h"
+#include "../dto/departments-subjectsDTO.h"
+#include "../departments-subjects.h"
+#include "../department.h"
+#include "../subject.h"
 #include <string>
 
 class DepartmentsSubjectsApi
 {
 private:
-	DepartmentsSubjectsApiApi D;
-	DepartmentsSubjectsApiDTO d;	
+	DepartmentsSubjects D;
+	DepartmentsSubjectsDTO d;	
 
 public:
 	void save(int id, int subjectId, std::string studyYear, std::string studySemestar);
 	void save(Department id, Subject subjectId, std::string studyYear, std::string studySemestar);
 	
-	void read(int id, int subjectId) const;
+	void read(int id, int subjectId);
 	
 	void del(int id, int subjectId);
 	
 	void update(int id, int subjectId, std::string studyYear, std::string studySemestar);
-	void update(Department id, Subject subjectId,, std::string studyYear, std::string studySemestar);
+	void update(Department id, Subject subjectId,std::string studyYear, std::string studySemestar);
 	
 };
 
@@ -41,7 +42,7 @@ void DepartmentsSubjectsApi::save(Department id, Subject subjectId, std::string 
 	d.save(D,id,subjectId);
 }
 
-void DepartmentsSubjectsApi::read(int id, int subjectId) const{
+void DepartmentsSubjectsApi::read(int id, int subjectId) {
 	d.read(id,subjectId);
 
 }
