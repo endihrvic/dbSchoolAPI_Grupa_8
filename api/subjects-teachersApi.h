@@ -14,46 +14,48 @@ private:
 
 public:
 	void save(int subjectId, int teacherId);
-	/*
-	 *Metod treba da u file "db/subjects-teachers.txt" 
-	 *
-	 */
-	void read() const;
-	/*
-	 *Metod treba da procita 
-	 *Ukoliko ID ne postoji u listi, generirati gresku.
-	 */
-	void del();
-	/*
-	 *Metod treba da obrise 
-	 *Ukoliko ID ne postoji u listi, generirati gresku.
-	 */
+	void save(Subject subjectId, Teacher teacherId);
+	
+	void read(int subjectId) const;
+	
+	void del(int subjectId);
+	
 	void update(int subjectId, int teacherId);
-	/*
-	 *Metod treba da updateuje 
-	 *Ukoliko department sa datim IDom ne postoji, javiti gresku.
-	 */
+	void update(Subject subjectId, Teacher teacherId);
+	
 	
 };
 void SubjectsTeachersApi::save(int subjectId, int teacherId){
 	S.setSubId(subjectId);
 	S.setTeacdId(teacherId);
-	s.save(s)
+	s.save(s);
 }
 
-void SubjectsTeachersApi::read() const{
-	
+void SubjectsTeachersApi::save(Subject subjectId, Teacher teacherId){
+	S.setSubId(subjectId.getId());
+	S.setTeacdId(teacherId.getId());
+	s.save(s,subjectId, teacherId);
+}
+
+void SubjectsTeachersApi::read(int subjectId) const{
+	s.read(subjectId);
 
 }
 
-void SubjectsTeachersApi::del(){
-	
+void SubjectsTeachersApi::del(int subjectId){
+	s.del(subjectId);
 }
 
 void SubjectsTeachersApi::update(int subjectId, int teacherId){
 	S.setSubId(subjectId);
 	S.setTeacdId(teacherId);
-	s.update(s)
+	s.update(s);
+
+}
+void SubjectsTeachersApi::update(Subject subjectId, Teacher teacherId){
+	S.setSubId(subjectId.getId());
+	S.setTeacdId(teacherId.getId());
+	s.update(s,subjectId, teacherId);
 
 }
 #endif /* SUBJECTS-TEACHERSAPI_H */

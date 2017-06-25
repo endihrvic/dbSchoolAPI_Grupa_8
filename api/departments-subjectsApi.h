@@ -14,25 +14,14 @@ private:
 
 public:
 	void save(int id, int subjectId, std::string studyYear, std::string studySemestar);
-	/*
-	 *Metod treba da u file "db/departments-subjects.txt" 
-	 *
-	 */
+	void save(Department id, Subject subjectId, std::string studyYear, std::string studySemestar);
+	
 	void read(int id, int subjectId) const;
-	/*
-	 *Metod treba da procita 
-	 *Ukoliko ID ne postoji u listi, generirati gresku.
-	 */
+	
 	void del(int id, int subjectId);
-	/*
-	 *Metod treba da obrise 
-	 *Ukoliko ID ne postoji u listi, generirati gresku.
-	 */
+	
 	void update(int id, int subjectId, std::string studyYear, std::string studySemestar);
-	/*
-	 *Metod treba da updateuje 
-	 *Ukoliko department sa datim IDom ne postoji, javiti gresku.
-	 */
+	void update(Department id, Subject subjectId,, std::string studyYear, std::string studySemestar);
 	
 };
 
@@ -41,7 +30,15 @@ void DepartmentsSubjectsApi::save(int id, int subjectId, std::string studyYear, 
 	D.setSubId(subjectId);
 	D.setStudYear(studyYear);
 	D.setStudySem(studySemestar);
-	d.save(D)
+	d.save(D);
+}
+
+void DepartmentsSubjectsApi::save(Department id, Subject subjectId, std::string studyYear, std::string studySemestar){
+	D.setDepId(id.getId());
+	D.setSubId(subjectId.getId());
+	D.setStudYear(studyYear);
+	D.setStudySem(studySemestar);
+	d.save(D,id,subjectId);
 }
 
 void DepartmentsSubjectsApi::read(int id, int subjectId) const{
@@ -58,7 +55,15 @@ void DepartmentsSubjectsApi::update(int id, int subjectId, std::string studyYear
 	D.setSubId(subjectId);
 	D.setStudYear(studyYear);
 	D.setStudySem(studySemestar);
-	d.update(D)
+	d.update(D);
+
+}
+void DepartmentsSubjectsApi::update(Department id, Subject subjectId, std::string studyYear, std::string studySemestar){
+	D.setDepId(id.getId());
+	D.setSubId(subjectId.getId());
+	D.setStudYear(studyYear);
+	D.setStudySem(studySemestar);
+	d.update(D,id,subjectId);
 
 }
 #endif /* DEPARTMENTS-SUBJECTSAPI_H */
