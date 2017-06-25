@@ -41,4 +41,69 @@ std::string subTeachersToStr(subTeachers a){
 	ss >> s;
 	return s;
 }
+void subTeachersDTO::save(subTeachers a){
+	//preuzmi string iz filea 
+	std::ifstream is;
+	is.open("./db/subjects-teachers.h");
+	std::string s;
+  getline(is,s);
+	while(getline(is, s)){
+		if(a.getSubId() == (strTosubTeachers(s)).getSubId())
+			throw std::runtime_error("ID se vec koristi\n");
+	}	
+	is.close();
+	//ukoliko nije doslo do greske, upisi objekat u file
+	std::ofstream os;
+	os.open("./db/subjects-teachers.h");
+	os << subTeachersToStr(a);
+	os.close();
+}
+
+void subTeachersDTO::read(int id){
+	bool found = false;
+	subTeachers a;
+	std::ifstream is;
+	is.open("./db/subjects-teachers.h");
+	std::string s;
+	getline(is,s);
+	while(getline(is, s)){
+		if(id == (strTosubTeachers(s)).getSubId()){
+			found = true;
+			break;
+		}
+	}	
+	if(found)
+		std::cout << s;
+	else
+		std::cout << "Error: trazeni unos ne postoji\n";
+}
+
+void subTeachersDTO::del(int id){
+	subTeachers a;
+	std::ifstream is;
+	is.open("./db/subjects-teachers.h");
+	std::string s;
+	getline(is,s);
+	while(getline(is, s)){
+		if(id == (strTosubTeachers(s)).getSubId()){
+			deleteLine(s, "./db/subjects-teachers.h");
+			return;
+		}
+	}	
+	std::cout << "Error: trazeni unos ne postoji\n";	
+}
+
+void subTeachersDTO::update(subTeachers a){
+	std::ifstream is;
+	is.open("./db/subjects-teachers.h");
+	std::string s;
+getline(is,s);
+	while(getline(is, s)){
+		if(a.getSubId() == (strTosubTeachers(s)).getSubId()){
+			changeLine(s, subTeachersToStr(a), "./db/subjects-teachers.h");
+			return;
+		}
+	}	
+	std::cout << "Error: trazeni unos ne postoji\n";
+}
 #endif

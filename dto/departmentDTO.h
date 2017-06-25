@@ -36,10 +36,7 @@ Department strToDepartment(std::string d){
 
 std::string departmentToStr(Department a){
 	std::string s;
-	std::stringstream ss;
-	ss << a.getId() << ", " << a.getName();
-	ss >> s;
-	return s;
+	return std::to_string(a.getId()) + ", " + a.getName();
 }
 
 void DepartmentDTO::save(Department a){
@@ -54,8 +51,8 @@ void DepartmentDTO::save(Department a){
 	is.close();
 	//ukoliko nije doslo do greske, upisi objekat u file
 	std::ofstream os;
-	os.open("./db/departments.txt");
-	os << departmentToStr(a);
+	os.open("./db/departments.txt", std::ios::app);
+	os << departmentToStr(a) << "\n";
 	os.close();
 }
 
@@ -72,7 +69,7 @@ void DepartmentDTO::read(int id){
 		}
 	}	
 	if(found)
-		std::cout << s;
+		std::cout << s << "\n";
 	else
 		std::cout << "Error: trazeni unos ne postoji\n";
 }

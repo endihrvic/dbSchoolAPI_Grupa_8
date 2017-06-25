@@ -69,11 +69,7 @@ Teacher strToTeachers(std::string s){
 
 std::string teachersToStr(Teacher a){
 	std::string s;
-	std::stringstream ss;
-	ss << a.getId() << ", " << a.getFirstName() << ", " << a.getLastName() << ", " << a.getBirthDate() << ", " <<a.getEmail();
-  ss << ", " << a.getGender() <<", " << a.getJmbg() << ", " << a.getTitle() << ", " << a.getDepId() <<"\n";
-	ss >> s;
-	return s;
+	return std::to_string(a.getId()) + ", " + a.getFirstName() + ", " + a.getLastName() + ", " + a.getBirthDate() + ", " + a.getEmail() + ", " + a.getGender() + ", " + a.getJmbg() + ", " + a.getTitle() + ", " + std::to_string(a.getDepId()) +"\n";
 }
 
 void TeacherDTO::save(Teacher a){
@@ -88,8 +84,8 @@ void TeacherDTO::save(Teacher a){
 	is.close();
 	//ukoliko nije doslo do greske, upisi objekat u file
 	std::ofstream os;
-	os.open("./db/teachers.txt");
-	os << teachersToStr(a);
+	os.open("./db/teachers.txt", std::ios::app);
+	os << teachersToStr(a) << "\n";
 	os.close();
 }
 
@@ -108,11 +104,11 @@ void TeacherDTO::save(Teacher a, Department d){
 		DepartmentDTO dDto;
 		dDto.save(d);
 	}	
-	catch(std::string cs){}
+	catch(...){}
 	//upisati studenta u file
 	std::ofstream os;
-	os.open("./db/teachers.txt");
-	os << "\n" << teachersToStr(a);
+	os.open("./db/teachers.txt", std::ios::app);
+	os << "\n" << teachersToStr(a) << "\n";
 	os.close();
 }
 
@@ -129,7 +125,7 @@ void TeacherDTO::read(int id){
 		}
 	}	
 	if(found)
-		std::cout << s;
+		std::cout << s << "\n";
 	else
 		std::cout << "Error: trazeni unos ne postoji\n";
 }
@@ -153,11 +149,12 @@ void TeacherDTO::update(Teacher a){
 	is.open("./db/teachers.txt");
 	std::string s;
 	while(getline(is, s)){
-		if(a.getId() == (strToTeachers(s)).getId()){
+			if(a.getId() == (strToTeachers(s)).getId()){
 			changeLine(s, teachersToStr(a), "./db/teachers.txt");
 			return;
 		}
 	}	
+	is.close();
 	std::cout << "Error: trazeni unos ne postoji\n";
 }
 
@@ -172,7 +169,7 @@ void TeacherDTO::update(Teacher a, Department d){
 			DepartmentDTO dDto;
 			dDto.save(d);
 		}	
-		catch(std::string cs){}
+		catch(...){}
 		//upisati teachera u file
 		changeLine(s, teachersToStr(a), "./db/teachers.txt");
 		return;

@@ -14,7 +14,7 @@ class DepartmentsSubjectsDTO
 {
 public:
 	void save(DepartmentsSubjects);	
-	void read(int,int)const;
+	void read(int,int);
 	void del(int,int);
 	void update(DepartmentsSubjects);
 };
@@ -55,6 +55,7 @@ void DepartmentsSubjectsDTO::save(DepartmentsSubjects a){
 	std::ifstream is;
 	is.open("./db/departments-subjects.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(a.getDepId() == (strToDepSub(s)).getDepId())
 			throw std::runtime_error("ID se vec koristi\n");
@@ -67,12 +68,13 @@ void DepartmentsSubjectsDTO::save(DepartmentsSubjects a){
 	os.close();
 }
 
-void DepartmentsSubjectsDTO::read(int id, int subid)const{
+void DepartmentsSubjectsDTO::read(int id, int subid){
 	bool found = false;
 	DepartmentsSubjects a;
 	std::ifstream is;
 	is.open("./db/departments-subjects.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToDepSub(s)).getDepId() && subid==(strToDepSub(s)).getSubId()){
 			found = true;
@@ -90,6 +92,7 @@ void DepartmentsSubjectsDTO::del(int id, int subid){
 	std::ifstream is;
 	is.open("./db/departments-subjects.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 	if(id == (strToDepSub(s)).getDepId() && subid==(strToDepSub(s)).getSubId()){
 				deleteLine(s, "./db/departments-subjects.txt");
@@ -103,6 +106,7 @@ void DepartmentsSubjectsDTO::update(DepartmentsSubjects a){
 	std::ifstream is;
 	is.open("./db/departments-subjects.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(a.getDepId() == (strToDepSub(s)).getDepId()){
 			changeLine(s, depSubToStr(a), "./db/departments-subjects.txt");

@@ -45,10 +45,8 @@ Subject strToSubject(std::string s){
 
 std::string subjectToStr(Subject a){
 	std::string s;
-	std::stringstream ss;
-	ss << a.getId() << ", " << a.getName() << ", " << a.getEtcs() << ", " << a.getAbbr();
-	ss >> s;
-	return s;
+		return std::to_string(a.getId()) + ", " + a.getName() + ", " + std::to_string(a.getEtcs()) + ", " + a.getAbbr();
+	s;
 }
 
 void SubjectDTO::save(Subject a){
@@ -63,8 +61,8 @@ void SubjectDTO::save(Subject a){
 	is.close();
 	//ukoliko nije doslo do greske, upisi objekat u file
 	std::ofstream os;
-	os.open("./db/subjects.txt");
-	os << subjectToStr(a);
+	os.open("./db/subjects.txt", std::ios::app);
+	os << subjectToStr(a) << "\n";
 	os.close();
 }
 
@@ -81,7 +79,7 @@ void SubjectDTO::read(int id){
 		}
 	}	
 	if(found)
-		std::cout << s;
+		std::cout << s << "\n";
 	else
 		std::cout << "Error: trazeni unos ne postoji\n";
 }
