@@ -9,7 +9,7 @@ int main()
     Department a;
     a.setId(2);
     a.setName("Automatika i robotika");
-    A.save(4, "Abba", "Abbic", "1996", "abba.abic@fet.ba", "Z", "54654654654", a);
+    A.save(4, "Abba", "Abbic", "1996", "abba.abic@fet.ba", "Z", "54654654654", 2);
     /*
      *prethodni poziv metoda save treba generisati gresku ukoliko se 
      *naziv i ID postojeceg departmenta ne poklapaju
@@ -36,18 +36,17 @@ int main()
      *generirati gresku
      */
     A.update(3, "A", "Ab", "1996-01", "a.ab@fet.ba", "M", "342523457", 2);
+    A.read(3);
     /*
      *update treba generisati gresku ukoliko se zele uredjivati
      *unosi kojih nema u tabeli studenta
      */
     A.update(3, "A", "Ab", "1996-01", "a.ab@fet.ba", "M", "342523457", a);
+    A.read(3);
     /*
      *isto ponasanje kao i kod metoda save() prilikom pozivanja
      *nad objektom departmenta koji ne postoji u tabeli
      */
-    A.read(3);
-    A.del(3);
-    
     TeacherApi B;
     B.read(2);
     B.save(3, "B", "Ba", "2452", "mail", "M", "1234234", "dr. sc.", 1);
@@ -61,7 +60,6 @@ int main()
     B.update(3, "Bb", "Bba", "2452", "mail", "M", "1234234", "dr. sc.", b);
     B.read(3);
     B.read(4);
-    B.del(3);
     B.del(4);
     /*
      *potrebno je omoguciti istu funkcionalnost metoda kao i kod studentApi
