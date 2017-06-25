@@ -1,5 +1,4 @@
 #include "api/api.h"
-#include "dbSchoolAPI_Grupa_8/api/api.h"
 #include <string>
 #include <iostream>
 
@@ -49,7 +48,7 @@ int main()
     A.read(3);
     A.del(3);
     
-    teacherApi B;
+    TeacherApi B;
     B.read(2);
     B.save(3, "B", "Ba", "2452", "mail", "M", "1234234", "dr. sc.", 1);
     Department b;
@@ -58,7 +57,7 @@ int main()
     B.save(4, "B", "Ba", "2452", "mail", "M", "1234234", "dr. sc.", b);
     B.update(3, "Bb", "Bba", "2452", "mail", "M", "1234234", "dr. sc.", b);
     B.read(3);
-    B.read(4)
+    B.read(4);
     B.update(3, "Bb", "Bba", "2452", "mail", "M", "1234234", "dr. sc.", b);
     B.read(3);
     B.read(4);
@@ -68,7 +67,7 @@ int main()
      *potrebno je omoguciti istu funkcionalnost metoda kao i kod studentApi
      */
 
-    subjectApi C;
+    SubjectApi C;
     C.read(2); 
     C.save(3, "Ime predmeta", 6, "IP");
     C.read(3);
@@ -80,7 +79,7 @@ int main()
      *u klasi Subject ne postoji id bilo koje druge klase.
      */
 
-    departmentApi D;
+    DepartmentApi D;
     D.read(2);
     D.save(3, "Novi department");
     D.read(3);
