@@ -75,6 +75,7 @@ void SubjectDTO::read(int id){
 	std::ifstream is;
 	is.open("./db/subjects.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToSubject(s)).getId()){
 			found = true;
@@ -92,6 +93,7 @@ void SubjectDTO::del(int id){
 	std::ifstream is;
 	is.open("./db/subjects.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToSubject(s)).getId()){
 			deleteLine(s, "./db/subjects.txt");
@@ -105,6 +107,7 @@ void SubjectDTO::update(Subject a){
 	std::ifstream is;
 	is.open("./db/subjects.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToSubject(s)).getId()){
 			changeLine(s, subjectToStr(a), "./db/subjects.txt");

@@ -81,6 +81,7 @@ void TeacherDTO::save(Teacher a){
 	std::ifstream is;
 	is.open("./db/teachers.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToTeachers(s)).getId())
 			throw std::runtime_error("ID se vec koristi\n");
@@ -123,6 +124,7 @@ void TeacherDTO::read(int id){
 	std::ifstream is;
 	is.open("./db/teachers.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToTeachers(s)).getId()){
 			found = true;
@@ -140,6 +142,7 @@ void TeacherDTO::del(int id){
 	std::ifstream is;
 	is.open("./db/teachers.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToTeachers(s)).getId()){
 			deleteLine(s, "./db/teachers.txt");
@@ -153,6 +156,7 @@ void TeacherDTO::update(Teacher a){
 	std::ifstream is;
 	is.open("./db/teachers.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToTeachers(s)).getId()){
 			changeLine(s, teachersToStr(a), "./db/teachers.txt");
@@ -166,6 +170,7 @@ void TeacherDTO::update(Teacher a, Department d){
 	std::ifstream is;
 	is.open("./db/teachers.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToTeachers(s)).getId()){
 		//ukoliko teacher sa datim IDom postoji u fajlu, provjeriti department, pa snimiti teachera

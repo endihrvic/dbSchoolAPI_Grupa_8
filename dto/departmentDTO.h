@@ -66,6 +66,7 @@ void DepartmentDTO::read(int id){
 	std::ifstream is;
 	is.open("./db/departments.txt");
 	std::string s;
+	getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToDepartment(s)).getId()){
 			found = true;
@@ -83,6 +84,7 @@ void DepartmentDTO::del(int id){
 	std::ifstream is;
 	is.open("./db/departments.txt");
 	std::string s;
+	getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToDepartment(s)).getId()){
 			deleteLine(s, "./db/departments.txt");
@@ -96,6 +98,7 @@ void DepartmentDTO::update(Department a){
 	std::ifstream is;
 	is.open("./db/departments.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToDepartment(s)).getId()){
 			changeLine(s, departmentToStr(a), "./db/departments.txt");

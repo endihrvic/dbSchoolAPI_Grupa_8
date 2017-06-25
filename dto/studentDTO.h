@@ -77,6 +77,7 @@ void StudentDTO::save(Student a){
 	std::ifstream is;
 	is.open("./db/students.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToStudents(s)).getId())
 			throw std::runtime_error("ID se vec koristi\n");
@@ -119,6 +120,7 @@ void StudentDTO::read(int id){
 	std::ifstream is;
 	is.open("./db/students.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToStudents(s)).getId()){
 			found = true;
@@ -136,6 +138,7 @@ void StudentDTO::del(int id){
 	std::ifstream is;
 	is.open("./db/students.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(id == (strToStudents(s)).getId()){
 			deleteLine(s, "./db/students.txt");
@@ -149,6 +152,7 @@ void StudentDTO::update(Student a){
 	std::ifstream is;
 	is.open("./db/students.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToStudents(s)).getId()){
 			changeLine(s, StudentsToStr(a), "./db/students.txt");
@@ -163,6 +167,7 @@ void StudentDTO::update(Student a, Department d){
 	std::ifstream is;
 	is.open("./db/students.txt");
 	std::string s;
+getline(is,s);
 	while(getline(is, s)){
 		if(a.getId() == (strToStudents(s)).getId()){
 		//ukoliko student sa datim IDom postoji u fajlu, provjeriti department, pa snimiti studenta
