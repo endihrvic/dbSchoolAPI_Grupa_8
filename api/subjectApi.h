@@ -17,7 +17,7 @@ public:
 	 *Metod treba da u file "db/subjects.txt" snimi predmet sa novim ID brojem.
 	 *Ukoliko department sa datim IDom vec postoji, javiti gresku.
 	 */
-	void read(int id) const;
+	void read(int id);
 	/*
 	 *Metod treba da procita predmet iz liste "db/subjects.txt" sa datim ID brojem.
 	 *Ukoliko ID ne postoji u listi, generirati gresku.
@@ -45,7 +45,7 @@ void SubjectApi::save(int id, std::string name, int ects, std::string abbreviati
 	a.save(S);
 }
 
-void SubjectApi::read(int id) const{
+void SubjectApi::read(int id){
 	a.read(id);
 }
 
