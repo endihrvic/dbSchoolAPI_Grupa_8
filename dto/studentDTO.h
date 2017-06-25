@@ -53,9 +53,9 @@ Student strToStudents(std::string s){
 	a.setGender(s);
 	ss.ignore(1);
 	//setuj jmbg
-  ss>>b;
-	a.setJmbg(b); 
-	ss.ignore(2);
+  getline(ss,s, ',');
+	a.setJmbg(s); 
+	ss.ignore(1);
 	//setuj departmentId
 	ss >> b;
 	a.setDepId(b);

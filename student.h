@@ -16,7 +16,7 @@ private:
     std::string _birthDate;
     std::string _email;
     std::string _gender;
-    int _jmbg;
+    std::string _jmbg;
     int _departmentId;
 
 public:
@@ -28,7 +28,7 @@ public:
     std::string getBirthDate()const {return _birthDate;}
     std::string getEmail()const {return _email;}
     std::string getGender()const {return _gender;}
-    int getJmbg()const {return _jmbg;}
+    std::string getJmbg()const {return _jmbg;}
     int getDepId()const {return _departmentId;}
 
 	//seteri
@@ -38,7 +38,7 @@ public:
     void setBirthDate(std::string bd){_birthDate=bd;}
     void setEmail(std::string e){_email=e;}
     void setGender(std::string g){_gender=g;}
-    void setJmbg(int j){_jmbg=j;}
+    void setJmbg(std::string j){_jmbg=j;}
     void setDepId(int id){_departmentId=id;}
 
 };
