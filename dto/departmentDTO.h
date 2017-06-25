@@ -37,7 +37,7 @@ Department strToDepartment(std::string d){
 std::string departmentToStr(Department a){
 	std::string s;
 	std::stringstream ss;
-	ss << a.getId() << ", " << a.getName() << "\n";
+	ss << a.getId() << ", " << a.getName();
 	ss >> s;
 	return s;
 }

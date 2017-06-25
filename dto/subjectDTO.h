@@ -46,7 +46,7 @@ Subject strToSubject(std::string s){
 std::string subjectToStr(Subject a){
 	std::string s;
 	std::stringstream ss;
-	ss << a.getId() << ", " << a.getName() << ", " << a.getEtcs() << ", " << a.getAbbr() << "\n";
+	ss << a.getId() << ", " << a.getName() << ", " << a.getEtcs() << ", " << a.getAbbr();
 	ss >> s;
 	return s;
 }
