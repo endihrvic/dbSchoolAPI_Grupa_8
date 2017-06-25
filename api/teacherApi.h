@@ -1,9 +1,9 @@
 #ifndef TEACHERAPI_H
 #define TEACHERAPI_H
 
-#include "./teacher.h"
-#include "./dto/teacherDTO.h"
-#include "./department.h"
+#include "../teacher.h"
+#include "../dto/teacherDTO.h"
+#include "../department.h"
 #include <string>
 
 

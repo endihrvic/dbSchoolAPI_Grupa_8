@@ -40,6 +40,7 @@ public:
     void setFirstName(std::string fn){_firstName=fn;}
     void setLastName(std::string ln){_lastName=ln;}
     void setBirthDate(std::string bd){_birthDate=bd;}
+    void setEmail(std::string em) {_email=em;}
     void setGender(std::string g){_gender=g;}
     void setJmbg(std::string j){_jmbg=j;}
     void setTitle(std::string t){_title=t;}

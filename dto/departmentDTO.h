@@ -19,7 +19,7 @@ public:
 	void update(Department);
 };
 
-Department strToSubject(std::string d){
+Department strToDepartment(std::string d){
 	Department a;
 	int b;
 	std::stringstream ss;	
@@ -34,7 +34,7 @@ Department strToSubject(std::string d){
 	return a;
 }
 
-std::string subjectToStr(Department a){
+std::string departmentToStr(Department a){
 	std::string s;
 	std::stringstream ss;
 	ss << a.getId() << ", " << a.getName() << "\n";
