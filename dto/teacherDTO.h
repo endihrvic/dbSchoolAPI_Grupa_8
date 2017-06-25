@@ -3,6 +3,7 @@
 
 #include "../teacher.h"
 #include "../department.h"
+#include "departmentDTO.h"
 #include "exchDelLine.h"
 #include <iostream>
 #include <string>
@@ -15,11 +16,11 @@ class TeacherDTO
 {
 public:
 	void save(Teacher);
-	
+	void save(Teacher, Department);
 	void read(int);
 	void del(int);
 	void update(Teacher);
-	
+	void update(Teacher, Department);
 };
 
 Teacher strToTeachers(std::string s){
@@ -92,6 +93,29 @@ void TeacherDTO::save(Teacher a){
 	os.close();
 }
 
+void TeacherDTO::save(Teacher a, Department d){
+	//preuzmi string iz filea 
+	std::ifstream is;
+	is.open("./db/teachers.txt");
+	std::string s;
+	while(getline(is, s)){
+		if(a.getId() == (strToTeachers(s)).getId())
+			throw std::runtime_error("ID se vec koristi\n");
+	}	
+	is.close();
+	//ukoliko nije doslo do greske, prvo provjeriti da li dati department postoji, i ukoliko ne, dodati ga
+	try{
+		DepartmentDTO dDto;
+		dDto.save(d);
+	}	
+	catch(std::string cs){}
+	//upisati studenta u file
+	std::ofstream os;
+	os.open("./db/teachers.txt");
+	os << "\n" << teachersToStr(a);
+	os.close();
+}
+
 void TeacherDTO::read(int id){
 	bool found = false;
 	Teacher a;
@@ -135,6 +159,26 @@ void TeacherDTO::update(Teacher a){
 		}
 	}	
 	std::cout << "Error: trazeni unos ne postoji\n";
+}
+
+void TeacherDTO::update(Teacher a, Department d){
+	std::ifstream is;
+	is.open("./db/teachers.txt");
+	std::string s;
+	while(getline(is, s)){
+		if(a.getId() == (strToTeachers(s)).getId()){
+		//ukoliko teacher sa datim IDom postoji u fajlu, provjeriti department, pa snimiti teachera
+		try{
+			DepartmentDTO dDto;
+			dDto.save(d);
+		}	
+		catch(std::string cs){}
+		//upisati teachera u file
+		changeLine(s, teachersToStr(a), "./db/teachers.txt");
+		return;
+		}
+	}	
+	is.close();
 }
 
 #endif /* TEACHERDTO_H */

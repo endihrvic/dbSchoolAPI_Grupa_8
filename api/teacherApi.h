@@ -28,7 +28,7 @@ public:
 	 *kreirati novi Department na osnovu proslijedjenog, a nakon toga kreirati novog profesora.
 	 *Ukoliko ID departmenta postoji, a ostali podaci objekata nisu identicni, javiti gresku.
 	 */
-	void read(int id) const;
+	void read(int id);
 	/*
 	 *Metod treba da procita profesora iz liste "db/teachers.txt" sa datim ID brojem.
 	 *Ukoliko ID ne postoji u listi, generirati gresku.
@@ -80,7 +80,7 @@ void TeacherApi::save(int id, std::string firstName, std::string lastName, std::
 	a.save(T, depObject);
 }
 
-void TeacherApi::read(unt id){
+void TeacherApi::read(int id){
 	a.read(id);
 }
 
