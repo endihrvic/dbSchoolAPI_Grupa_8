@@ -14,8 +14,8 @@ class DepartmentsSubjectsDTO
 {
 public:
 	void save(DepartmentsSubjects);	
-	void read(int);
-	void del(int);
+	void read(int,int)const;
+	void del(int,int);
 	void update(DepartmentsSubjects);
 };
 
@@ -67,14 +67,14 @@ void DepartmentsSubjectsDTO::save(DepartmentsSubjects a){
 	os.close();
 }
 
-void DepartmentsSubjectsDTO::read(int id){
+void DepartmentsSubjectsDTO::read(int id, int subid)const{
 	bool found = false;
 	DepartmentsSubjects a;
 	std::ifstream is;
 	is.open("./db/departments-subjects.txt");
 	std::string s;
 	while(getline(is, s)){
-		if(id == (strToDepSub(s)).getDepId()){
+		if(id == (strToDepSub(s)).getDepId() && subid==(strToDepSub(s)).getSubId()){
 			found = true;
 			break;
 		}
@@ -85,14 +85,14 @@ void DepartmentsSubjectsDTO::read(int id){
 		std::cout << "Error: trazeni unos ne postoji\n";
 }
 
-void DepartmentsSubjectsDTO::del(int id){
+void DepartmentsSubjectsDTO::del(int id, int subid){
 	DepartmentsSubjects a;
 	std::ifstream is;
 	is.open("./db/departments-subjects.txt");
 	std::string s;
 	while(getline(is, s)){
-		if(id == (strToDepSub(s)).getDepId()){
-			deleteLine(s, "./db/departments-subjects.txt");
+	if(id == (strToDepSub(s)).getDepId() && subid==(strToDepSub(s)).getSubId()){
+				deleteLine(s, "./db/departments-subjects.txt");
 			return;
 		}
 	}	
