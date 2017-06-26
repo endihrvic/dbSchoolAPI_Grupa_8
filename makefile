@@ -37,4 +37,4 @@ exchDelLine.o: dto/exchDelLine.h dto/exchDelLine.cpp
 	$(CC) $(CFLAGS) dto/exchDelLine.cpp
 
 clean:
-	rm *.o p1	
+		rm *.o api/*.o dto/*.o
