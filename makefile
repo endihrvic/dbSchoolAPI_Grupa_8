@@ -1,7 +1,7 @@
-OBJS = main.o api/departmentApi.o api/studentApi.o api/subjectApi.o api/teacherApi.o dto/departmentDTO.o dto/subjectDTO.o dto/studentDTO.o dto/teacherDTO.o dto/exchDelLine.o
+OBJS = main.o departmentApi.o studentApi.o subjectApi.o teacherApi.o departmentDTO.o subjectDTO.o studentDTO.o teacherDTO.o exchDelLine.o
 CC = g++
-CFLAGS = -std=c++14 -c
-LFLAGS = -std=c++14
+CFLAGS = -std=c++11 -c
+LFLAGS = -std=c++11
 
 p1: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) -o p1
@@ -37,4 +37,4 @@ exchDelLine.o: dto/exchDelLine.h dto/exchDelLine.cpp
 	$(CC) $(CFLAGS) dto/exchDelLine.cpp
 
 clean:
-		rm *.o api/*.o dto/*.o
+		rm *.o
